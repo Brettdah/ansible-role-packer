@@ -17,9 +17,8 @@
 
 - name: set packer version fact
   set_fact:
-       packer_version: "{{ packer_github_result.json.0.name|default(packer_default_version)|replace('v','') }}"
-  when: packer_version == 'latest'
-
+       packer_version: "{{ packer_github_result.json|first|attr('name')|default(packer_default_version)|replace('v','') }}"
+  when: packer_version == 'latest' and packer_github_result.json is iterable and packer_github_result.json|length > 0
 
 - name: set packer version fact
   set_fact:

@@ -1,6 +1,6 @@
 ---
 - name: get installed packer version
-  shell: "packer version | sed -e 's/Packer v//'"
+  shell: "packer version | sed -e '2,$d' | sed -e 's/Packer v//'"
   register: packer_version_result
   ignore_errors: yes
 
@@ -17,7 +17,7 @@
 
 - name: set packer version fact
   set_fact:
-       packer_version: "{{ packer_github_result.json|first|attr('name')|default(packer_default_version)|replace('v','') }}"
+       packer_version: "{{ packer_github_result.json|map(attribute='name')|first|default(packer_default_version)|replace('v','') }}"
   when: packer_version == 'latest' and packer_github_result.json is iterable and packer_github_result.json|length > 0
 
 - name: set packer version fact

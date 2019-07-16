@@ -1,5 +1,5 @@
 ---
-- name: get installed packer version
+- name: get installed packer version # noqa 301
   shell: "packer version | sed -e '2,$d' | sed -e 's/Packer v//'"
   register: packer_version_result
   ignore_errors: yes
@@ -23,4 +23,4 @@
 - name: set packer version fact
   set_fact:
     packer_version: "{{ packer_default_version }}"
-  when: packer_version == '' or packer_version is none
+  when: not packer_version

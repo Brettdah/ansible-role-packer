@@ -1,5 +1,8 @@
 ---
-packer_default_version: '1.3.3'
+packer_default_version: '1.7.2'
 packer_current_version:
 packer_base_url: https://releases.hashicorp.com/packer
 packer_release_api_url: https://api.github.com/repos/mitchellh/packer/tags
+packer_apt_key_url: https://apt.releases.hashicorp.com/gpg
+packer_apt_url: https://apt.releases.hashicorp.com
+packer_apt_package: packer

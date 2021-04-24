@@ -1,4 +1,6 @@
 ---
+- include: version.yml
+
 - name: "download packer binary {{ packer_version }}"
   get_url:
       url: "{{ packer_base_url }}/{{ packer_version }}/packer_{{ packer_version }}_linux_amd64.zip"

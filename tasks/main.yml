@@ -1,7 +1,10 @@
 ---
-- include: version.yml
+- include: install_package.yml
+  when: not packer_install_binary | bool
   tags:
     - packer
-- include: install.yml
+
+- include: install_binary.yml
+  when: packer_install_binary | bool
   tags:
     - packer

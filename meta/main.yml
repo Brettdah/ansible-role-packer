@@ -1,7 +1,9 @@
 ---
 galaxy_info:
+  role_name: packer
+  namespace: csanquer
   author: Charles Sanquer
-  description: install Packer tool
+  description: install Hashicorp Packer tool
   min_ansible_version: 2.6
   license: LGPLv3
   github_branch: master

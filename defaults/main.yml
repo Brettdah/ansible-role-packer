@@ -1,2 +1,4 @@
 ---
+packer_install_binary: false
 packer_version: latest
+packer_state: latest
